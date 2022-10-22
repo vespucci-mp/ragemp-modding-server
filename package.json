@@ -1,0 +1,31 @@
+{
+	"name": "ragemp-server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"prettier": {
+		"$schema": "http://json.schemastore.org/prettierrc",
+		"endOfLine": "lf",
+		"printWidth": 200,
+		"quoteProps": "as-needed",
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"trailingComma": "none",
+		"useTabs": true,
+		"overrides": [
+			{
+				"files": "*.yml",
+				"options": {
+					"tabWidth": 2,
+					"useTabs": false
+				}
+			}
+		]
+	}
+}
