@@ -85,7 +85,7 @@ mp.events.addCommand("heal", (player) => {
 
 mp.events.addCommand("help", (player) => {
   player.sendClientMessage(`Commands: /spawn /veh /fv /(d)espawn(v)eh /plate /heal /mod`)
-  player.sendClientMessage(`Commands: /despawnvehicles /vehcolor /vehcolorrgb`)
+  player.sendClientMessage(`Commands: /despawnvehicles /vehcolor /vehcolorhex`)
 });
 
 mp.events.addCommand('mod', (player, _, modType, modIndex) => {
