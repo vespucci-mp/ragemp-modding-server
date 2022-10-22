@@ -16,3 +16,19 @@ mp.events.add('render', () => {
     mp.game.invoke('0x9E4CFFF989258472'); //
     mp.game.invoke('0xF4F2C0D4EE209E20');
 });
+
+
+mp.events.add('render', () => {
+
+    if (player.vehicle) {
+        const speed = (player.vehicle.getSpeed() * 3.6).toFixed(0);
+
+        mp.game.graphics.drawText(`${speed} KM/H`, [0.5, 0.956], {
+            font: 4,
+            color: [255, 255, 255, 255],
+            outline: true,
+            scale: [0.6, 0.6]
+        });
+
+    }
+});

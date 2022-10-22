@@ -13,3 +13,5 @@ BugTrap-x64.dll
 ragemp-server
 pnpm-lock.yaml
 .pnpm-debug.log
+
+client_packages/game_resources/dlcpacks
