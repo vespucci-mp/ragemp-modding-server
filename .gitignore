@@ -14,5 +14,4 @@ ragemp-server
 pnpm-lock.yaml
 .pnpm-debug.log
 
-client_packages/game_resources/dlcpacks
-client_packages/.listcache
+client_packages/game_resources
