@@ -102,8 +102,6 @@ function hexToRgb(hex) {
 }
 
 
-
-
 mp.events.addCommand('vehcolor', (player, fullText, color1, color2) => {
 
   if (!player.vehicle) return player.outputChatBox("You need to be in a vehicle to use this command.");
@@ -141,5 +139,34 @@ mp.events.addCommand('vehcolorhex', (player, fullText, color1, color2) => {
   player.vehicle.setColorRGB(rgb1[0], rgb1[1], rgb1[2], rgb2[0], rgb2[1], rgb2[2]);
 
   player.notify(`Vehicle color changed to rgb color ${rgb1.join(",")} ${color2 ? ` and secondary rgb color: ${rgb2.join(",")}` : ''}`)
+
+});
+
+mp.events.addCommand('setskin', (player, fullText) => {
+
+  if (!fullText) return player.sendClientMessage(`Args: /setskin [model]`)
+
+  player.model = mp.joaat(fullText);
+
+  player.sendClientMessage(`Skin changed to ${fullText}`)
+});
+
+mp.events.addCommand('setclothes', (player, fullText, type, drawable, texture) => {
+
+  if (!fullText) return player.sendClientMessage(`Args: /setclothes [type] [drawable] [texture]`)
+
+  player.setClothes(parseInt(type), parseInt(drawable), parseInt(texture), 0);
+
+  player.sendClientMessage(`Clothes applied: type ${type}, drawable id ${drawable}, texture id ${texture}`);
+
+});
+
+mp.events.addCommand('setprops', (player, fullText, type, drawable, texture) => {
+
+  if (!fullText) return player.sendClientMessage(`Args: /setclothes [type] [drawable] [texture]`)
+
+  player.setProp(parseInt(type), parseInt(drawable), parseInt(texture));
+
+  player.sendClientMessage(`Props applied: type ${type}, drawable id ${drawable}, texture id ${texture}`);
 
 });
