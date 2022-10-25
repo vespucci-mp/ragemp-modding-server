@@ -142,13 +142,32 @@ mp.events.addCommand('vehcolorhex', (player, fullText, color1, color2) => {
 
 });
 
-mp.events.addCommand('setskin', (player, fullText) => {
+mp.events.addCommand('skin', (player, fullText) => {
 
-  if (!fullText) return player.sendClientMessage(`Args: /setskin [model]`)
+  if (!fullText) return player.sendClientMessage(`Args: /skin [model]`)
 
   player.model = mp.joaat(fullText);
 
   player.sendClientMessage(`Skin changed to ${fullText}`)
+});
+
+mp.events.addCommand('pedm', (player, fullText) => {
+
+  player.model = mp.joaat("mp_m_freemode_01");
+  player.sendClientMessage(`You're a boy now.`)
+
+  const c = { "motherShape": 0, "fatherShape": 8, "shapeResemblance": 0.43, "skinResemblance": 0.5, }
+  this.setHeadBlend(c.motherShape, c.fatherShape, 0, c.motherShape, c.fatherShape, 0, c.shapeResemblance, c.skinResemblance, 0);
+
+});
+
+mp.events.addCommand('pedf', (player, fullText) => {
+
+  player.model = mp.joaat("mp_f_freemode_01");
+  player.sendClientMessage(`You're a girl now.`)
+
+  const c = { "motherShape": 8, "fatherShape": 25, "shapeResemblance": 1, "skinResemblance": 0.71, }
+  this.setHeadBlend(c.motherShape, c.fatherShape, 0, c.motherShape, c.fatherShape, 0, c.shapeResemblance, c.skinResemblance, 0);
 });
 
 mp.events.addCommand('setclothes', (player, fullText, type, drawable, texture) => {
@@ -158,6 +177,17 @@ mp.events.addCommand('setclothes', (player, fullText, type, drawable, texture) =
   player.setClothes(parseInt(type), parseInt(drawable), parseInt(texture), 0);
 
   player.sendClientMessage(`Clothes applied: type ${type}, drawable id ${drawable}, texture id ${texture}`);
+
+});
+
+
+mp.events.addCommand('sethaircolor', (player, fullText, color1, color2) => {
+
+  if (!fullText) return player.sendClientMessage(`Args: /sethaircolor [color1] [color2?]`)
+
+  player.setHairColor(parseInt(color1), parseInt(color2 ? color2 : color1));
+
+  player.sendClientMessage(`Hair color applied: color 1 ${color1}, color 2 : ${color2 ? color2 : "N/A"}`);
 
 });
 
