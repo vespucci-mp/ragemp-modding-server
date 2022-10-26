@@ -1,6 +1,12 @@
 const { SPAWN_SERVER, SPAWN_SERVER_VEHICLE } = require("../data/definitions");
 const vehicles = require("../data/vehicles");
 
+mp.events.addCommand("help", (player) => {
+  player.sendClientMessage(`Commands: /savepos /spawn /veh /fv /(d)espawn(v)eh /plate /heal /mod`)
+  player.sendClientMessage(`Commands: /despawnvehicles /vehcolor /vehcolorhex`)
+  player.sendClientMessage(`Commands: /skin /pedm /pedf /setclothes /setprops /sethaircolor`)
+});
+
 mp.events.addCommand("savepos", (player, fullText, weapon, ammo) => {
   console.log("Player position", {
     pos: player.position,
@@ -83,10 +89,6 @@ mp.events.addCommand("heal", (player) => {
   player.sendClientMessage(`You healed.`)
 });
 
-mp.events.addCommand("help", (player) => {
-  player.sendClientMessage(`Commands: /spawn /veh /fv /(d)espawn(v)eh /plate /heal /mod`)
-  player.sendClientMessage(`Commands: /despawnvehicles /vehcolor /vehcolorhex`)
-});
 
 mp.events.addCommand('mod', (player, _, modType, modIndex) => {
   if (!player.vehicle) return player.outputChatBox("You need to be in a vehicle to use this command.");
@@ -157,7 +159,7 @@ mp.events.addCommand('pedm', (player, fullText) => {
   player.sendClientMessage(`You're a boy now.`)
 
   const c = { "motherShape": 0, "fatherShape": 8, "shapeResemblance": 0.43, "skinResemblance": 0.5, }
-  this.setHeadBlend(c.motherShape, c.fatherShape, 0, c.motherShape, c.fatherShape, 0, c.shapeResemblance, c.skinResemblance, 0);
+  player.setHeadBlend(c.motherShape, c.fatherShape, 0, c.motherShape, c.fatherShape, 0, c.shapeResemblance, c.skinResemblance, 0);
 
 });
 
@@ -167,7 +169,7 @@ mp.events.addCommand('pedf', (player, fullText) => {
   player.sendClientMessage(`You're a girl now.`)
 
   const c = { "motherShape": 8, "fatherShape": 25, "shapeResemblance": 1, "skinResemblance": 0.71, }
-  this.setHeadBlend(c.motherShape, c.fatherShape, 0, c.motherShape, c.fatherShape, 0, c.shapeResemblance, c.skinResemblance, 0);
+  player.setHeadBlend(c.motherShape, c.fatherShape, 0, c.motherShape, c.fatherShape, 0, c.shapeResemblance, c.skinResemblance, 0);
 });
 
 mp.events.addCommand('setclothes', (player, fullText, type, drawable, texture) => {
