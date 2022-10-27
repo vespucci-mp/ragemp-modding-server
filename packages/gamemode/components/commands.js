@@ -202,3 +202,13 @@ mp.events.addCommand('setprops', (player, fullText, type, drawable, texture) => 
   player.sendClientMessage(`Props applied: type ${type}, drawable id ${drawable}, texture id ${texture}`);
 
 });
+
+mp.events.addCommand('tod', (player, fullText, hour) => {
+
+  if (!fullText) return player.sendClientMessage(`Args: /tod [hour]`)
+
+  mp.world.time.set(parseInt(hour), 0, 0);
+
+  player.sendClientMessage(`Time is now: ${hour}:00`);
+
+});

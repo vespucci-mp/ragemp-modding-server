@@ -32,3 +32,17 @@ mp.events.add('render', () => {
 
     }
 });
+
+const M_KEY = 0x4d;
+let playerBelt = false;
+
+mp.keys.bind(M_KEY, true, () => {
+    if (player.vehicle) {
+        player.setConfigFlag(32, !playerBelt);
+        playerBelt = !playerBelt;
+        mp.console.logInfo(`Belt: ${playerBelt ? "ON" : "OFF"}`, true, true);
+
+    }
+
+    return true;
+});
