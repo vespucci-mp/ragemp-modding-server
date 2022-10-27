@@ -40,7 +40,7 @@ mp.keys.bind(M_KEY, true, () => {
     if (player.vehicle) {
         player.setConfigFlag(32, !playerBelt);
         playerBelt = !playerBelt;
-        mp.console.logInfo(`Belt: ${playerBelt ? "ON" : "OFF"}`, true, true);
+        mp.console.logInfo(`Belt: ${playerBelt ? "OFF" : "ON"}`, true, true);
 
     }
 
