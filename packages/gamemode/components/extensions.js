@@ -1,3 +1,3 @@
 mp.Player.prototype.sendClientMessage = function (message) {
-  this.outputChatBox(message);
+	this.outputChatBox(message);
 };

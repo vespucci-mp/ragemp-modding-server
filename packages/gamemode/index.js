@@ -1,3 +1,3 @@
-require("./components/extensions");
-require("./components/events");
-require("./components/commands");
+require('./components/extensions');
+require('./components/events');
+require('./components/commands');
