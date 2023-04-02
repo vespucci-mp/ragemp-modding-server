@@ -240,3 +240,12 @@ mp.events.addCommand('gotomark', (player, fullText, name) => {
 
   player.sendClientMessage(`Teleported to "${name}"`);
 });
+
+mp.events.addCommand('gotoxyz', (player, fullText, x, y, z) => {
+  if (!fullText) return player.sendClientMessage(`Args: /gotoxyz [x] [y] [z]`);
+
+
+  player.position = new mp.Vector3(parseFloat(x), parseFloat(y), parseFloat(z))
+
+  player.sendClientMessage(`Teleported to "${JSON.stringify({ x, y, z })}"`);
+});
